@@ -1,0 +1,11 @@
+.l-field {
+    margin-right: 2rem;
+    label {
+        font-weight: bold;
+        &:after {
+            content: ':';
+            display: inline-block;
+            padding-right: 1rem;
+        }
+    }
+}

@@ -1,0 +1,243 @@
+[
+    {
+        "title": "首页",
+        "icon": "home",
+        "path": "home"
+    },
+    {
+        "title": "服务",
+        "icon": "schedule",
+        "path": "service",
+        "pages": [
+            {
+                "title": "列表",
+                "path": ""
+            },
+            {
+                "title": "添加服务",
+                "path": "add"
+            },
+            {
+                "title": "编辑服务",
+                "path": ":service_id/edit",
+                "name": "edit"
+            },
+            {
+                "title": "服务详情",
+                "path": ":service_id/edit",
+                "name": "detail"
+            }
+        ]
+    },
+    {
+        "title": "职员",
+        "icon": "id-card-o",
+        "path": "employee",
+        "pages": [
+            {
+                "title": "列表",
+                "path": ""
+            },
+            {
+                "title": "添加职员",
+                "path": "add"
+            },
+            {
+                "title": "编辑职员",
+                "path": ":employee_id/edit",
+                "name": "edit"
+            },
+            {
+                "title": "职员详情",
+                "path": ":employee_id/edit",
+                "name": "detail"
+            }
+        ]
+    },
+    {
+        "title": "资讯",
+        "icon": "bullhorn",
+        "module": [
+            {
+                "title": "活动",
+                "path": "activity",
+                "pages": [
+                    {
+                        "title": "列表",
+                        "path": ""
+                    },
+                    {
+                        "title": "添加职员",
+                        "path": "add"
+                    },
+                    {
+                        "title": "编辑职员",
+                        "path": ":employee_id/edit",
+                        "name": "edit"
+                    },
+                    {
+                        "title": "职员详情",
+                        "path": ":employee_id/edit",
+                        "name": "detail"
+                    }
+                ]
+            },
+            {
+                "title": "新闻",
+                "path": "news",
+                "pages": [
+                    {
+                        "title": "列表",
+                        "path": ""
+                    },
+                    {
+                        "title": "添加职员",
+                        "path": "add"
+                    },
+                    {
+                        "title": "编辑职员",
+                        "path": ":employee_id/edit",
+                        "name": "edit"
+                    },
+                    {
+                        "title": "职员详情",
+                        "path": ":employee_id/edit",
+                        "name": "detail"
+                    }
+                ]
+            },
+            {
+                "title": "公告",
+                "path": "notice",
+                "pages": [
+                    {
+                        "title": "列表",
+                        "path": ""
+                    },
+                    {
+                        "title": "添加职员",
+                        "path": "add"
+                    },
+                    {
+                        "title": "编辑职员",
+                        "path": ":employee_id/edit",
+                        "name": "edit"
+                    },
+                    {
+                        "title": "职员详情",
+                        "path": ":employee_id/edit",
+                        "name": "detail"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "风采",
+        "icon": "video-camera",
+        "module": [
+            {
+                "title": "公司信息",
+                "path": "info"
+            },
+            {
+                "title": "实验室",
+                "path": "laboratory",
+                "pages": [
+                    {
+                        "title": "列表",
+                        "path": ""
+                    },
+                    {
+                        "title": "添加职员",
+                        "path": "add"
+                    },
+                    {
+                        "title": "编辑职员",
+                        "path": ":employee_id/edit",
+                        "name": "edit"
+                    },
+                    {
+                        "title": "职员详情",
+                        "path": ":employee_id/edit",
+                        "name": "detail"
+                    }
+                ]
+            },
+            {
+                "title": "轮魔图",
+                "path": "carousel",
+                "pages": [
+                    {
+                        "title": "列表",
+                        "path": ""
+                    },
+                    {
+                        "title": "添加职员",
+                        "path": "add"
+                    },
+                    {
+                        "title": "编辑职员",
+                        "path": ":employee_id/edit",
+                        "name": "edit"
+                    },
+                    {
+                        "title": "职员详情",
+                        "path": ":employee_id/edit",
+                        "name": "detail"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "招聘",
+        "icon": "briefcase",
+        "path": "job",
+        "pages": [
+            {
+                "title": "列表",
+                "path": ""
+            },
+            {
+                "title": "添加职员",
+                "path": "add"
+            },
+            {
+                "title": "编辑职员",
+                "path": ":employee_id/edit",
+                "name": "edit"
+            },
+            {
+                "title": "职员详情",
+                "path": ":employee_id/edit",
+                "name": "detail"
+            }
+        ]
+    },
+    {
+        "title": "留言",
+        "icon": "comments-o",
+        "path": "message",
+        "pages": [
+            {
+                "title": "列表",
+                "path": ""
+            },
+            {
+                "title": "添加职员",
+                "path": "add"
+            },
+            {
+                "title": "编辑职员",
+                "path": ":employee_id/edit",
+                "name": "edit"
+            },
+            {
+                "title": "职员详情",
+                "path": ":employee_id/edit",
+                "name": "detail"
+            }
+        ]
+    }
+]
