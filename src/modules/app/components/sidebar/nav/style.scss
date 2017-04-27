@@ -1,28 +1,20 @@
-@import '../../../../style.scss';
-$icon_size: 1rem;
 .sidebar-nav {
-    ul {
-        li {
-            a {
-                display: flex;
-                font-size: $icon_size;
-                line-height: $header_height;
+    &>li {
+        font-size: 14px;
+        .sidebar-title {
+            .l-icon {
+                display: inline-flex;
+                width: 40px;
                 align-items: center;
-                color: #61646d;
-                i.fa {
-                    width: $header_height;
-                    text-align: center;
-                }
-                .title {
-                    flex-grow: 1;
-                    text-align: center;
-                    padding-right: $header_height / 2;
-                    letter-spacing: 1rem;
-                }
-                &.active {
-                    color: #ccc;
-                }
             }
+            &>span {
+                letter-spacing: 6px;
+            }
+        }
+    }
+    .ant-menu-sub {
+        li {
+            padding-left: 70px!important;
         }
     }
 }

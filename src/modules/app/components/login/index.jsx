@@ -13,7 +13,6 @@ export class LoginForm extends React.Component {
         return (
             <Form className="login-form">
                 <div className="logo">
-                    <img src={ require('../../../../public/images/logo.png') } />
                 </div>
                 <FormGroup>
                     <Field name="username" component={ FormInput } placeholder="请输入用户名"></Field>

@@ -6,9 +6,9 @@ import { SidebarNav } from '../nav/';
 import { SidebarLogo } from '../logo/';
 import './style.scss';
 
-export const Sidebar = () => (
+export const Sidebar = props => (
 	<sidebar id="sidebar">
-		<SidebarLogo></SidebarLogo>
-		<SidebarNav></SidebarNav>
+		<SidebarLogo {...props}></SidebarLogo>
+		<SidebarNav {...props}></SidebarNav>
 	</sidebar>
 );

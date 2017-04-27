@@ -6,7 +6,7 @@
     },
     {
         "title": "服务",
-        "icon": "schedule",
+        "icon": "briefcase",
         "path": "service",
         "pages": [
             {
@@ -31,7 +31,7 @@
     },
     {
         "title": "职员",
-        "icon": "id-card-o",
+        "icon": "users",
         "path": "employee",
         "pages": [
             {
