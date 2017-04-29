@@ -2,7 +2,8 @@
     {
         "title": "首页",
         "icon": "home",
-        "path": "home"
+        "path": "home",
+        "pages": []
     },
     {
         "title": "服务",
@@ -57,7 +58,7 @@
     {
         "title": "资讯",
         "icon": "bullhorn",
-        "module": [
+        "modules": [
             {
                 "title": "活动",
                 "path": "activity",
@@ -135,10 +136,11 @@
     {
         "title": "风采",
         "icon": "video-camera",
-        "module": [
+        "modules": [
             {
                 "title": "公司信息",
-                "path": "info"
+                "path": "info",
+                "pages": []
             },
             {
                 "title": "实验室",

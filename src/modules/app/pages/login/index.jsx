@@ -7,7 +7,7 @@ import { LoginForm } from '../../components';
 import { xhttp } from '../../../common';
 import './style.scss';
 
-export class loginPage extends React.Component {
+export class LoginPage extends React.Component {
     render() {
         let { user_login } = this.props;
         return (
@@ -24,15 +24,3 @@ export class loginPage extends React.Component {
         });
     }
 }
-
-function mapStateToProps(state) {
-    return state;
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        xhttp: xhttp(dispatch)
-    };
-}
-
-export const LoginPage = connect(mapStateToProps, mapDispatchToProps)(loginPage);

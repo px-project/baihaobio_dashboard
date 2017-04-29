@@ -3,7 +3,8 @@
  */
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { LoginPage, AppPage } from '..';
+import {AppPage} from '../index/index';
+import {LoginPage} from '../login';
 
 function loginAuth() {
     // return !!localStorage.getItem('token');

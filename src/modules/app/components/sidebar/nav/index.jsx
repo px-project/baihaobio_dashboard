@@ -18,14 +18,14 @@ export class SidebarNav extends React.Component {
 		return (
 			<Menu className="sidebar-nav" theme='dark' mode="inline" onClick={this.linkTo.bind(this)}>
 				{ routerConfig.map((module, index) => (
-					module.module ? (
+					module.modules ? (
 						<SubMenu key={index} title={ 
 							<span className="sidebar-title">
 								<Icon icon={ module.icon }></Icon> 
 								<span>{ module.title }</span>
 							</span>
 						}>
-							{ module.module.map((sub_module, sub_index) => (
+							{ module.modules.map((sub_module, sub_index) => (
 								<Menu.Item key={`/${sub_module.path}`}>
 									{ sub_module.title }
 								</Menu.Item>

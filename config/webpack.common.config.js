@@ -80,7 +80,6 @@ exports.config = {
     plugins: [
         // html替换
         new htmlWebpackPlugin({
-            title: "liulab",
             filename: 'index.html',
             server,
             template: root('src/index.html'),
