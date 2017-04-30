@@ -1,27 +1,39 @@
 /**
- * 登录框组件
+ * login form component.
  */
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { Form, FormGroup, FormInput, Button } from 'antd';
+import { Icon } from '../../../common';
+import { Form, Button, Input } from 'antd';
+const FormItem = Form.Item;
 import './style.scss';
 
-@reduxForm({ form: 'login_form' })
-export class LoginForm extends React.Component {
+class loginForm extends React.Component {
     render() {
-        let { handleSubmit, loading } = this.props;
+        let { getFieldDecorator } = this.props.form;
         return (
-            <Form className="login-form">
-                <div className="logo">
-                </div>
-                <FormGroup>
-                    <Field name="username" component={ FormInput } placeholder="请输入用户名"></Field>
-                </FormGroup>
-                <FormGroup>
-                    <Field name="password" component={ FormInput } type="password" placeholder="请输入密码"></Field>
-                </FormGroup>
-                <Button disabled={ loading } onClick={ handleSubmit } type="button" primary={ true }>登录</Button>
+            <Form className="login-form" onSubmit={ this.submit.bind(this) }>
+                <FormItem>
+                    { getFieldDecorator('userName', {
+                        rules: [{ required: true, message: 'Please input your username!' }],
+                    })(<Input prefix={ <Icon type="user" style={ { fontSize: 13 } } /> } placeholder="Username" />) }
+                </FormItem>
+                <FormItem>
+                    { getFieldDecorator('password', {
+                        rules: [{ required: true, message: 'Please input your Password!' }],
+                    })(<Input prefix={ <Icon type="lock" style={ { fontSize: 13 } } /> } type="password" placeholder="Password" />) }
+                </FormItem>
+                <FormItem>
+                    <Button type="primary" htmlType="submit" className="login-form-button">Log in</Button>
+                </FormItem>
             </Form>
         );
     }
+    submit(e) {
+        e.preventDefault();
+        let { form, login } = this.props;
+        form.validateFields((err, values) => login(values));
+    }
 }
+
+
+export const LoginForm = Form.create()(loginForm);

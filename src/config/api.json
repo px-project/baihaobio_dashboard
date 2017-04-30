@@ -1,6 +1,4 @@
 {
-    "count": {
-        "detail": "/flow/counts"
-    },
-    "service": "/service"
+    "service": "/service",
+    "login": "/admin/login"
 }
