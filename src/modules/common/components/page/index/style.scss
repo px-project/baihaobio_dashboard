@@ -12,6 +12,10 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+                img {
+                    display: block;
+                    width: 100%;
+                }
             }
         }
     }

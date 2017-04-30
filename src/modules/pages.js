@@ -6,3 +6,5 @@ export * from './news/pages';
 export * from './notice/pages';
 export * from './job/pages';
 export * from './message/pages';
+export * from './laboratory/pages';
+export * from './carousel/pages';
