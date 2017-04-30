@@ -8,7 +8,7 @@ import './style.scss';
 
 export class ServiceType extends React.Component {
     render() {
-        let { className, empty = false } = this.props;
+        let { className, empty = false, data } = this.props;
         return (
             <Select placeholder={ empty ? '全部服务类型' : '请选择服务类型' }
                 className={ `service-type ${className}` }>

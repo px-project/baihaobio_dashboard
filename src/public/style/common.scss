@@ -2,7 +2,7 @@ $transition_time: 0.3s;
 $header_height: 3.5rem; // 50px
 // reset
 body {
-    background: #eff3f5;
+    // background: #eff3f5;
     table {
         td {
             a {
@@ -43,8 +43,7 @@ body {
     // }
 }
 
-.ui.form .field {
-}
+.ui.form .field {}
 
 .page {
     .page .page-header {

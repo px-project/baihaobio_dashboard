@@ -3,42 +3,24 @@
  */
 const config = require('../../../config/api.json');
 
-// gen url.
-function url(api = '', params = [], conditions = {}) {
-    let url = 'http://baihaobio.com/Admin' + config[api];
-
-    // params handler.
-    url = url.replace(new RegExp('\{[a-zA-Z0-9_]+\}', 'g'), substr => params.shift());
-    if (params.length) url += `/${params.join('/')}`;
-
-    // conditions handler.
-    url += '?' + Object.keys(conditions).map(key => {
-        let value = conditions[key];
-        if (!value && value !== false) return;
-        return (Array.isArray(value) ? value : [value]).map(v => v ? `${key}=${v}&` : '').join('');
-    }).join('');
-
-    return url.substr(0, url.length - 1);
-}
-
-// error handler.
-function handleError(code) {
-    console.log(code);
-    switch (code) {
-        case 10200:
-            window.location = '/login';
+class Xhttp {
+    get(url) {
+        return BuildMethod({ url, method: 'GET' });
+    }
+    post(url, data) {
+        return BuildMethod({ url, method: 'POST' });
     }
 }
 
-// build xhttp method.
-function buildMethod(method, options) {
-    let { api, params, conditions = {}, data } = options;
 
-    let _url = url(api, params, conditions);
+export const xhttp = new Xhttp;
+
+function BuildMethod({ url, data, method }) {
+    let _url = "http://baihaobio.com/Admin" + url;
     let fetchOption = {
         method,
         headers: {},
-        credentials: 'same-origin'
+        credentials: 'include'
     };
 
     if (data) {
@@ -57,35 +39,16 @@ function buildMethod(method, options) {
         .then(res => {
             console.log(res);
             if (res.errno) return Promise.reject(res.errno);
-            return res;
+            return res.result;
         }).catch(code => handleError(code));
 }
 
 
-class Xhttp {
-    list(api, params = [], conditions = {}) {
-        return buildMethod('GET', { api, params, conditions });
-    }
-
-    detail(api, params = [], conditions = {}) {
-        return buildMethod('GET', { api, params, conditions });
-    }
-
-    create(api, params = [], data = {}) {
-        return buildMethod('POST', { api, params, data });
-    }
-
-    update(api, params = [], data = {}) {
-        return buildMethod('POST', { api, params, data });
-    }
-
-    delete(api, params = []) {
-        return buildMethod('DETETE', { api, params });
-    }
-
-    url(api, params = [], conditions = {}) {
-        return url(api, params, conditions);
+// error handler.
+function handleError(code) {
+    console.log(code);
+    switch (code) {
+        case 10200:
+            window.location = '/login';
     }
 }
-
-export const xhttp = new Xhttp;

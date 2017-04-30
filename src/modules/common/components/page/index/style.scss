@@ -1,6 +1,18 @@
 ._page {
-    .ant-table-thead>tr>th {
-        background: white;
-        border-bottom: 1px solid #f1f1f1;
+    // .ant-table-thead>tr>th {
+    //     background: white;
+    //     border-bottom: 1px solid #f1f1f1;
+    // }
+    .ant-table-body {
+        table {
+            table-layout: fixed;
+            width: 100%;
+            display: table;
+            td {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
     }
 }

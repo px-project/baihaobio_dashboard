@@ -15,10 +15,5 @@ export class LoginPage extends React.Component {
         );
     }
     login(data) {
-        console.log(data);
-        xhttp.create('login', [], data).then(res => {
-            console.log(res);
-        })
-
     }
 }

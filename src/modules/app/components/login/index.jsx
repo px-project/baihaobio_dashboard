@@ -13,13 +13,13 @@ class loginForm extends React.Component {
         return (
             <Form className="login-form" onSubmit={ this.submit.bind(this) }>
                 <FormItem>
-                    { getFieldDecorator('userName', {
-                        rules: [{ required: true, message: 'Please input your username!' }],
-                    })(<Input prefix={ <Icon type="user" style={ { fontSize: 13 } } /> } placeholder="Username" />) }
+                    { getFieldDecorator('username', {
+                        rules: [{ required: true, message: '请输入账号' }],
+                    })(<Input prefix={ <Icon type="user" style={ { fontSize: 13 } } /> } placeholder="请输入账号" />) }
                 </FormItem>
                 <FormItem>
                     { getFieldDecorator('password', {
-                        rules: [{ required: true, message: 'Please input your Password!' }],
+                        rules: [{ required: true, message: '请输入密码' }],
                     })(<Input prefix={ <Icon type="lock" style={ { fontSize: 13 } } /> } type="password" placeholder="Password" />) }
                 </FormItem>
                 <FormItem>

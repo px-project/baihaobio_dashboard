@@ -11,10 +11,10 @@ import { xhttp } from '../../../common';
 const { Search } = Input;
 
 const tableConfig = [
-    { title: '序号', dataIndex: 'index', key: 'index', width: '10%' },
-    { title: '名称', dataIndex: 'name', key: 'name', width: '20%' },
-    { title: '类型', dataIndex: 'type', key: 'type', width: '20%' },
-    { title: '创建时间', dataIndex: 'create_time', key: 'create_time', width: '25%' },
+    { title: '序号', dataIndex: 'index', key: 'i', width: '10%', render: (text, record, index) => index + 1 },
+    { title: '名称', dataIndex: 'title', key: 'name', width: '20%' },
+    { title: '类型', dataIndex: 'sortTitle', key: 'sortTitle', width: '20%' },
+    { title: '创建时间', dataIndex: 'createTime', key: 'createTime', width: '25%' },
     {
         title: '操作',
         key: 'action',
@@ -31,10 +31,19 @@ const tableConfig = [
 
 export class ServicePage extends React.Component {
 
-    componentWillMount() {
-        xhttp.list('service', [], {}).then(result => {
-            console.log(result);
-        })
+    constructor(props) {
+        super(props);
+        this.state = { services: [], type: [] };
+    }
+
+    componentDidMount() {
+        this.getServiceList().then(result => {
+            this.setState({ services: result.list });
+        });
+
+        xhttp.get('/service/sortList').then(result => {
+            this.setState({ type: result.list });
+        });
     }
 
     render() {
@@ -44,11 +53,15 @@ export class ServicePage extends React.Component {
                     <Button type="primary">
                         <Link to="/service/add">添加</Link>
                     </Button>
-                    <ServiceType className="right"></ServiceType>
+                    <ServiceType className="right" data={ this.state.type }></ServiceType>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
-                <Table pagination={ true } columns={ tableConfig }></Table>
+                <Table dataSource={ this.state.services } pagination={ true } columns={ tableConfig }></Table>
             </Page>
         );
+    }
+
+    getServiceList(page = 1) {
+        return xhttp.get('/service/serviceList/rows/20/page/' + page);
     }
 }
