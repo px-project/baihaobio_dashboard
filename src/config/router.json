@@ -11,10 +11,6 @@
         "path": "service",
         "pages": [
             {
-                "title": "列表",
-                "path": ""
-            },
-            {
                 "title": "添加服务",
                 "path": "add"
             },
@@ -27,6 +23,10 @@
                 "title": "服务详情",
                 "path": ":service_id/edit",
                 "name": "detail"
+            },
+            {
+                "title": "列表",
+                "path": ""
             }
         ]
     },
@@ -35,10 +35,6 @@
         "icon": "users",
         "path": "employee",
         "pages": [
-            {
-                "title": "列表",
-                "path": ""
-            },
             {
                 "title": "添加职员",
                 "path": "add"
@@ -52,6 +48,10 @@
                 "title": "职员详情",
                 "path": ":employee_id/edit",
                 "name": "detail"
+            },
+            {
+                "title": "列表",
+                "path": ""
             }
         ]
     },
@@ -64,10 +64,6 @@
                 "path": "activity",
                 "pages": [
                     {
-                        "title": "列表",
-                        "path": ""
-                    },
-                    {
                         "title": "添加职员",
                         "path": "add"
                     },
@@ -80,6 +76,10 @@
                         "title": "职员详情",
                         "path": ":employee_id/edit",
                         "name": "detail"
+                    },
+                    {
+                        "title": "列表",
+                        "path": ""
                     }
                 ]
             },
@@ -88,10 +88,6 @@
                 "path": "news",
                 "pages": [
                     {
-                        "title": "列表",
-                        "path": ""
-                    },
-                    {
                         "title": "添加职员",
                         "path": "add"
                     },
@@ -104,6 +100,10 @@
                         "title": "职员详情",
                         "path": ":employee_id/edit",
                         "name": "detail"
+                    },
+                    {
+                        "title": "列表",
+                        "path": ""
                     }
                 ]
             },
@@ -112,10 +112,6 @@
                 "path": "notice",
                 "pages": [
                     {
-                        "title": "列表",
-                        "path": ""
-                    },
-                    {
                         "title": "添加职员",
                         "path": "add"
                     },
@@ -128,6 +124,10 @@
                         "title": "职员详情",
                         "path": ":employee_id/edit",
                         "name": "detail"
+                    },
+                    {
+                        "title": "列表",
+                        "path": ""
                     }
                 ]
             }
@@ -147,10 +147,6 @@
                 "path": "laboratory",
                 "pages": [
                     {
-                        "title": "列表",
-                        "path": ""
-                    },
-                    {
                         "title": "添加职员",
                         "path": "add"
                     },
@@ -163,6 +159,10 @@
                         "title": "职员详情",
                         "path": ":employee_id/edit",
                         "name": "detail"
+                    },
+                    {
+                        "title": "列表",
+                        "path": ""
                     }
                 ]
             },
@@ -171,10 +171,6 @@
                 "path": "carousel",
                 "pages": [
                     {
-                        "title": "列表",
-                        "path": ""
-                    },
-                    {
                         "title": "添加职员",
                         "path": "add"
                     },
@@ -187,6 +183,10 @@
                         "title": "职员详情",
                         "path": ":employee_id/edit",
                         "name": "detail"
+                    },
+                    {
+                        "title": "列表",
+                        "path": ""
                     }
                 ]
             }
@@ -198,10 +198,6 @@
         "path": "job",
         "pages": [
             {
-                "title": "列表",
-                "path": ""
-            },
-            {
                 "title": "添加职员",
                 "path": "add"
             },
@@ -214,6 +210,10 @@
                 "title": "职员详情",
                 "path": ":employee_id/edit",
                 "name": "detail"
+            },
+            {
+                "title": "列表",
+                "path": ""
             }
         ]
     },
@@ -223,10 +223,6 @@
         "path": "message",
         "pages": [
             {
-                "title": "列表",
-                "path": ""
-            },
-            {
                 "title": "添加职员",
                 "path": "add"
             },
@@ -239,6 +235,10 @@
                 "title": "职员详情",
                 "path": ":employee_id/edit",
                 "name": "detail"
+            },
+            {
+                "title": "列表",
+                "path": ""
             }
         ]
     }

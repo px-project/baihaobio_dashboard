@@ -2,11 +2,15 @@
  * service add page.
  */
 import React from 'react';
+import { ServiceEdit } from '../../components';
+import { PageDetail } from '../../../common';
 
 export class ServiceAddPage extends React.Component {
     render() {
         return (
-            <p>service add page.</p>
+            <PageDetail className="service-add-page">
+                <ServiceEdit></ServiceEdit>
+            </PageDetail>
         );
     }
 }
