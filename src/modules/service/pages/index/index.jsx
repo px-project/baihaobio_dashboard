@@ -33,16 +33,12 @@ export class ServicePage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { services: [], type: [] };
+        this.state = { services: [] };
     }
 
     componentDidMount() {
         this.getServiceList().then(result => {
             this.setState({ services: result.list });
-        });
-
-        xhttp.get('/service/sortList').then(result => {
-            this.setState({ type: result.list });
         });
     }
 
@@ -53,7 +49,7 @@ export class ServicePage extends React.Component {
                     <Button type="primary">
                         <Link to="/service/add">添加</Link>
                     </Button>
-                    <ServiceType className="right" data={ this.state.type }></ServiceType>
+                    <ServiceType className="right" empty={ true }></ServiceType>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
                 <Table dataSource={ this.state.services } pagination={ true } columns={ tableConfig }></Table>

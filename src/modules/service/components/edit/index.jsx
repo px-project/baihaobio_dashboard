@@ -4,10 +4,11 @@
 import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
-import './style.scss';
 import { Editor } from '../../../common';
+import { ServiceType } from '../type';
 const FormItem = Form.Item;
 const { Option } = Select;
+import './style.scss';
 
 class _serviceEdit extends React.Component {
 
@@ -45,8 +46,7 @@ class _serviceEdit extends React.Component {
                                 <Option value="1">普通服务</Option>
                                 <Option value="2">特色服务</Option>
                             </Select>
-                            <Select placeholder="请选择服务" style={ { width: 200, paddingLeft: 20 } }>
-                            </Select>
+                            <ServiceType disabled={ !this.state.type } style={ { width: 200, marginLeft: 20 } } type={ this.state.type }></ServiceType>
                         </div>) }
                 </FormItem>
 
@@ -146,8 +146,8 @@ class _serviceEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
-            console.log(data);
-        })
+            this.props.submit(data);
+        });
     }
 
 }

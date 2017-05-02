@@ -9,15 +9,15 @@ import { Button, Table, Input } from 'antd';
 const { Search } = Input;
 
 const columns = [
-    { title: '序号', dataIndex: 'index', key: 'index', render: (text, record, index) => index + 1 },
-    { title: '姓名', dataIndex: 'name', key: 'name' },
+    { title: '序号', dataIndex: 'index', key: 'index', width: '10%', render: (text, record, index) => index + 1 },
+    { title: '姓名', dataIndex: 'name', key: 'name', width: '25%' },
     { title: '职位', dataIndex: 'position', key: 'position' },
-    { title: '创建时间', dataIndex: 'createTime', key: 'createTime' },
+    { title: '创建时间', dataIndex: 'createTime', key: 'createTime', width: '15%' },
     {
-        title: '操作', render: (text, record, index) => (
+        title: '操作', dataIndex: 'id', key: 'id', width: '15%', render: id => (
             <span>
-                <Link to={ `/employee/${record.id}` }>详情</Link>
-                <Link to={ `/employee/${record.id}/edits` }>编辑</Link>
+                <Link to={ `/employee/${id}` }>详情</Link>
+                <Link to={ `/employee/${id}/edits` }>编辑</Link>
                 <a>删除</a>
             </span>
         )
