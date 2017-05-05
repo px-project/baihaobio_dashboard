@@ -37,9 +37,9 @@ class _serviceEdit extends React.Component {
 
                 <FormItem label="类型" labelCol={ { span: 4 } }>
                     { getFieldDecorator('sortId', {
-                        rules: [
-                            { required: true, message: '请选择服务类型' }
-                        ]
+                        // rules: [
+                        //     { required: true, message: '请选择服务类型' }
+                        // ]
                     })(
                         <div style={ { display: 'flex' } }>
                             <Select placeholder="请选择类型" style={ { width: 200 } } onChange={ this.selectType.bind(this) }>
@@ -146,6 +146,7 @@ class _serviceEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
+            if (err) return;
             this.props.submit(data);
         });
     }

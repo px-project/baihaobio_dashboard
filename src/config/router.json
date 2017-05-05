@@ -21,7 +21,7 @@
             },
             {
                 "title": "服务详情",
-                "path": ":service_id/edit",
+                "path": ":service_id",
                 "name": "detail"
             },
             {
@@ -46,7 +46,7 @@
             },
             {
                 "title": "职员详情",
-                "path": ":employee_id/edit",
+                "path": ":employee_id",
                 "name": "detail"
             },
             {
@@ -64,21 +64,21 @@
                 "path": "activity",
                 "pages": [
                     {
-                        "title": "添加职员",
+                        "title": "添加活动",
                         "path": "add"
                     },
                     {
-                        "title": "编辑职员",
-                        "path": ":employee_id/edit",
+                        "title": "活动详情",
+                        "path": ":activity_id",
                         "name": "edit"
                     },
                     {
                         "title": "职员详情",
-                        "path": ":employee_id/edit",
+                        "path": ":activity_id/edit",
                         "name": "detail"
                     },
                     {
-                        "title": "列表",
+                        "title": "活动列表",
                         "path": ""
                     }
                 ]
@@ -88,17 +88,17 @@
                 "path": "news",
                 "pages": [
                     {
-                        "title": "添加职员",
+                        "title": "添加新闻",
                         "path": "add"
                     },
                     {
-                        "title": "编辑职员",
-                        "path": ":employee_id/edit",
+                        "title": "编辑新闻",
+                        "path": ":news_id/edit",
                         "name": "edit"
                     },
                     {
-                        "title": "职员详情",
-                        "path": ":employee_id/edit",
+                        "title": "新闻详情",
+                        "path": ":news_id",
                         "name": "detail"
                     },
                     {
@@ -112,17 +112,17 @@
                 "path": "notice",
                 "pages": [
                     {
-                        "title": "添加职员",
+                        "title": "添加公告",
                         "path": "add"
                     },
                     {
-                        "title": "编辑职员",
-                        "path": ":employee_id/edit",
+                        "title": "编辑公告",
+                        "path": ":notice_id/edit",
                         "name": "edit"
                     },
                     {
-                        "title": "职员详情",
-                        "path": ":employee_id/edit",
+                        "title": "公告详情",
+                        "path": ":notice_id",
                         "name": "detail"
                     },
                     {
@@ -147,17 +147,17 @@
                 "path": "laboratory",
                 "pages": [
                     {
-                        "title": "添加职员",
+                        "title": "添加实验室展示",
                         "path": "add"
                     },
                     {
-                        "title": "编辑职员",
-                        "path": ":employee_id/edit",
+                        "title": "编辑实验室展示",
+                        "path": ":laboratory_id/edit",
                         "name": "edit"
                     },
                     {
-                        "title": "职员详情",
-                        "path": ":employee_id/edit",
+                        "title": "实验室展示详情",
+                        "path": ":laboratory_id",
                         "name": "detail"
                     },
                     {
@@ -171,17 +171,17 @@
                 "path": "carousel",
                 "pages": [
                     {
-                        "title": "添加职员",
+                        "title": "添加轮播图",
                         "path": "add"
                     },
                     {
-                        "title": "编辑职员",
-                        "path": ":employee_id/edit",
+                        "title": "编辑轮播图",
+                        "path": ":carousel_id/edit",
                         "name": "edit"
                     },
                     {
-                        "title": "职员详情",
-                        "path": ":employee_id/edit",
+                        "title": "轮播图详情",
+                        "path": ":carousel_id",
                         "name": "detail"
                     },
                     {

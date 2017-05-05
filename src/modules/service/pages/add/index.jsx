@@ -15,6 +15,7 @@ export class ServiceAddPage extends React.Component {
         );
     }
     save(data) {
+        return console.log(data);
         xhttp.post('/service/create', data).then(result => {
             notification.success({
                 message: '服务创建成功',

@@ -6,7 +6,7 @@ import './style.scss';
 
 export class Editor extends React.Component {
     componentDidMount() {
-        let { id, height = 200, disabled = false, value } = this.props;
+        let { id, height = 200, disabled = false, value, onChange } = this.props;
 
         var editor = UM.getEditor(id, {
             //工具栏
@@ -47,12 +47,18 @@ export class Editor extends React.Component {
         });
 
         editor.ready((ueditor) => {
-            let _value = value || '<p></p>';
+            let _value = value || '';
             editor.setContent(_value);
+
+            editor.addListener('afterSelectionChange', () => {
+                onChange(editor.getContent());
+            });
         });
+
     }
 
     render() {
+        let { onChange } = this.props;
         return (
             <script id={ this.props.id } name="content" type="text/plain"></script>
         );
