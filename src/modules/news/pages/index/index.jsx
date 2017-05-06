@@ -2,7 +2,7 @@
  * news list page.
  */
 import React from 'react';
-import { xhttp, Page, PageHeader } from '../../../common';
+import { xhttp, Page, PageHeader, Loader } from '../../../common';
 import { Link } from 'react-router-dom';
 import { Button, Table, Input } from 'antd';
 
@@ -27,14 +27,16 @@ const columns = [
 export class NewsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { list: [] };
+        this.state = { list: [], loading: false };
     }
     componentWillMount() {
+        this.setState({ loading: true });
         this.getNewsList().then(res => {
-            this.setState({ list: res.list });
+            this.setState({ list: res.list, loading: false });
         })
     }
     render() {
+        let { list, loading } = this.state;
         return (
             <Page className="news-page">
                 <PageHeader>
@@ -43,7 +45,9 @@ export class NewsPage extends React.Component {
                         <Search placeholder="请输入关键字查询"></Search>
                     </div>
                 </PageHeader>
-                <Table columns={ columns } dataSource={ this.state.list }></Table>
+                <Loader loading={ loading }>
+                    <Table rowKey="id" columns={ columns } dataSource={ list }></Table>
+                </Loader>
             </Page>
         );
     }

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Header, Sidebar } from '../../components';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import * as pages from '../../../pages';
 const routerConfig = require('../../../../config/router.json');
 import { toBigCamcelCase as bigCamel } from '../../../../utils';
@@ -29,7 +29,8 @@ export class AppPage extends React.Component {
                                     path={ `/${module.path}` + (page.path ? `/${page.path}` : '') }
                                     component={ pages[bigCamel(module.path, (page.name || page.path), 'page')] }></Route>
                             ))) }
-                            <Route component={ pages.HomePage } />
+
+                            <Redirect to='/home' />
                         </Switch>
                     </div>
                 </div>

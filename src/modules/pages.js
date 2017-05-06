@@ -8,3 +8,4 @@ export * from './job/pages';
 export * from './message/pages';
 export * from './laboratory/pages';
 export * from './carousel/pages';
+export * from './user/pages';

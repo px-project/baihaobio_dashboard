@@ -2,7 +2,7 @@
  * carousel list page.
  */
 import React from 'react';
-import { xhttp, Page, PageHeader } from '../../../common';
+import { xhttp, Page, PageHeader, Loader } from '../../../common';
 import { Button, Table, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
@@ -33,16 +33,18 @@ export class CarouselPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { list: [] };
+        this.state = { list: [], loading: false };
     }
 
     componentWillMount() {
+        this.setState({ loading: true });
         this.getCarouselList().then(res => {
-            this.setState({ list: res.list });
+            this.setState({ list: res.list, loading: false });
         });
     }
 
     render() {
+        let { loading, list } = this.state;
         return (
             <Page className="carousel-page">
                 <PageHeader>
@@ -51,7 +53,9 @@ export class CarouselPage extends React.Component {
                         <Search placeholder="请输入关键字"></Search>
                     </div>
                 </PageHeader>
-                <Table columns={ columns } dataSource={ this.state.list }></Table>
+                <Loader loading={ loading }>
+                    <Table columns={ columns } dataSource={ list }></Table>
+                </Loader>
             </Page>
         );
     }

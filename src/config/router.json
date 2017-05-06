@@ -3,7 +3,12 @@
         "title": "首页",
         "icon": "home",
         "path": "home",
-        "pages": []
+        "pages": [
+            {
+                "title": "首页",
+                "path": ""
+            }
+        ]
     },
     {
         "title": "服务",
@@ -203,12 +208,12 @@
             },
             {
                 "title": "编辑职员",
-                "path": ":employee_id/edit",
+                "path": ":job_id/edit",
                 "name": "edit"
             },
             {
                 "title": "职员详情",
-                "path": ":employee_id/edit",
+                "path": ":job_id",
                 "name": "detail"
             },
             {
@@ -223,17 +228,33 @@
         "path": "message",
         "pages": [
             {
-                "title": "添加职员",
+                "title": "留言详情",
+                "path": ":message_id/edit",
+                "name": "detail"
+            },
+            {
+                "title": "列表",
+                "path": ""
+            }
+        ]
+    },
+    {
+        "title": "用户",
+        "icon": "user",
+        "path": "user",
+        "pages": [
+            {
+                "title": "添加用户",
                 "path": "add"
             },
             {
-                "title": "编辑职员",
-                "path": ":employee_id/edit",
+                "title": "编辑用户",
+                "path": ":user_id/edit",
                 "name": "edit"
             },
             {
-                "title": "职员详情",
-                "path": ":employee_id/edit",
+                "title": "用户详情",
+                "path": ":user_id",
                 "name": "detail"
             },
             {
