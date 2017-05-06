@@ -7,15 +7,24 @@ import { PageDetail, xhttp } from '../../../common';
 import { notification } from 'antd';
 
 export class ServiceAddPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { types: [] };
+    }
+    componentWillMount() {
+        xhttp.get('/service/sortList').then(result => {
+            this.setState({ types: result });
+        });
+    }
     render() {
         return (
             <PageDetail className="service-add-page">
-                <ServiceEdit submit={ this.save.bind(this) }></ServiceEdit>
+                <ServiceEdit types={ this.state.types } submit={ this.save.bind(this) }></ServiceEdit>
             </PageDetail>
         );
     }
     save(data) {
-        return console.log(data);
         xhttp.post('/service/create', data).then(result => {
             notification.success({
                 message: '服务创建成功',

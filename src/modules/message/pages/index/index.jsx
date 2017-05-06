@@ -40,7 +40,6 @@ export class MessagePage extends React.Component {
         return (
             <Page className="messgae-page">
                 <PageHeader>
-                    <Button type="primary"><Link to="/messgae/add">添加</Link></Button>
                     <div className="right">
                         <Search placeholder="请输入关键字"></Search>
                     </div>

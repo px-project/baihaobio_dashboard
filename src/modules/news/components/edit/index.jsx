@@ -4,7 +4,7 @@
 import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
-import { Editor } from '../../../common';
+import { Editor, Upload } from '../../../common';
 const FormItem = Form.Item;
 const { Option } = Select;
 import './style.scss';
@@ -39,7 +39,7 @@ class _newsEdit extends React.Component {
                         rules: [
                             { required: true, message: '请上传封面' }
                         ]
-                    })(<Input></Input>) }
+                    })(<Upload></Upload>) }
                 </FormItem>
 
                 <FormItem label="简介" labelCol={ { span: 4 } } wrapperCol={ { span: 12 } }>

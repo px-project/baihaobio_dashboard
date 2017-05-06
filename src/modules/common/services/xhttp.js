@@ -8,7 +8,7 @@ class Xhttp {
         return BuildMethod({ url, method: 'GET' });
     }
     post(url, data) {
-        return BuildMethod({ url, method: 'POST' });
+        return BuildMethod({ url, method: 'POST', data });
     }
 }
 

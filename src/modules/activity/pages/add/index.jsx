@@ -9,8 +9,11 @@ export class ActivityAddPage extends React.Component {
     render() {
         return (
             <PageDetail className="activity-add-page">
-                <ActivityEdit></ActivityEdit>
+                <ActivityEdit submit={ this.submit.bind(this) }></ActivityEdit>
             </PageDetail>
         );
+    }
+    submit(data) {
+        console.log(data);
     }
 }

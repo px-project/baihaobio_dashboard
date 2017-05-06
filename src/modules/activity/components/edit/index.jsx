@@ -4,21 +4,12 @@
 import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
-import { Editor } from '../../../common';
+import { Editor, Upload } from '../../../common';
 const FormItem = Form.Item;
 const { Option } = Select;
 import './style.scss';
 
 class _activityEdit extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { type: undefined };
-    }
-
-    selectType(type) {
-        this.setState({ type: +type });
-    }
 
     render() {
         let { form, types } = this.props, { getFieldDecorator } = form;
@@ -39,7 +30,7 @@ class _activityEdit extends React.Component {
                         rules: [
                             { required: true, message: '请上传封面' }
                         ]
-                    })(<Input></Input>) }
+                    })(<Upload></Upload>) }
                 </FormItem>
 
                 <FormItem label="简介" labelCol={ { span: 4 } } wrapperCol={ { span: 12 } }>
@@ -67,6 +58,7 @@ class _activityEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
+            if (err) return;
             this.props.submit(data);
         });
     }

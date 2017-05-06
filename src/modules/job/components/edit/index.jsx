@@ -1,29 +1,18 @@
 /**
- * service edit form component.
+ * job edit form component.
  */
 import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { Editor } from '../../../common';
-import { ServiceType } from '../type';
 const FormItem = Form.Item;
 const { Option } = Select;
 import './style.scss';
 
-class _serviceEdit extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { type: '' };
-    }
-
-    selectType(type) {
-        this.props.form.setFieldsValue({ sortId: '' });
-        this.setState({ type: type });
-    }
+class _jobEdit extends React.Component {
 
     render() {
-        let { form, types = [] } = this.props, { getFieldDecorator } = form;
+        let { form, types } = this.props, { getFieldDecorator } = form;
 
         return (
             <Form onSubmit={ this.submit.bind(this) }>
@@ -36,21 +25,19 @@ class _serviceEdit extends React.Component {
                     })(<Input></Input>) }
                 </FormItem>
 
-                <FormItem label="类型" labelCol={ { span: 4 } } wrapperCol={ { span: 10 } }>
-                    <Select placeholder="请选择类型" style={ { width: 200 } } onChange={ this.selectType.bind(this) }>
-                        <Option value="1">普通服务</Option>
-                        <Option value="2">特色服务</Option>
-                    </Select>
+                <FormItem label="类型" labelCol={ { span: 4 } }>
                     { getFieldDecorator('sortId', {
-                        rules: [
-                            { required: true, message: '请选择服务类型' }
-                        ]
+                        // rules: [
+                        //     { required: true, message: '请选择服务类型' }
+                        // ]
                     })(
-                        <Select placeholder="请选择服务" disabled={ !this.state.type } style={ { width: 200, marginLeft: 20 } }>
-                            { types.filter(item => item.type === this.state.type).map((type, index) => (
-                                <Option value={ type.id } key={ index }>{ type.title }</Option>
-                            )) }
-                        </Select>) }
+                        <div style={ { display: 'flex' } }>
+                            <Select placeholder="请选择类型" style={ { width: 200 } } onChange={ this.selectType.bind(this) }>
+                                <Option value="1">普通服务</Option>
+                                <Option value="2">特色服务</Option>
+                            </Select>
+                            <jobType disabled={ !this.state.type } style={ { width: 200, marginLeft: 20 } } type={ this.state.type }></jobType>
+                        </div>) }
                 </FormItem>
 
                 <FormItem label="概述" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
@@ -60,7 +47,7 @@ class _serviceEdit extends React.Component {
                 </FormItem>
 
                 {/* 普通 */ }
-                { this.state.type === '1' ? (
+                { this.state.type === 1 ? (
                     <div className="basic">
                         <FormItem label="项目简介" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('description', {
@@ -91,7 +78,7 @@ class _serviceEdit extends React.Component {
                 ) : '' }
 
                 {/* 特色 */ }
-                { this.state.type === '2' ? (
+                { this.state.type === 2 ? (
                     <div className="spec">
                         <FormItem label="项目简介" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('description', {
@@ -139,7 +126,7 @@ class _serviceEdit extends React.Component {
                 <FormItem wrapperCol={ { span: 12, offset: 4 } }>
                     <Button type="primary" htmlType="submit">保存</Button>
                     <Button type="danger">
-                        <Link to="/service">取消</Link>
+                        <Link to="/job">取消</Link>
                     </Button>
                 </FormItem>
             </Form>
@@ -156,4 +143,4 @@ class _serviceEdit extends React.Component {
 
 }
 
-export const ServiceEdit = Form.create()(_serviceEdit);
+export const JobEdit = Form.create()(_jobEdit);
