@@ -37,7 +37,6 @@ function BuildMethod({ url, data, method }) {
 
     return fetchRef.then(res => res.json())
         .then(res => {
-            console.log(res);
             if (res.errno) return Promise.reject(res.errno);
             return res.result;
         }).catch(code => handleError(code));
@@ -46,7 +45,6 @@ function BuildMethod({ url, data, method }) {
 
 // error handler.
 function handleError(code) {
-    console.log(code);
     switch (code) {
         case 10200:
             window.location = '/login';

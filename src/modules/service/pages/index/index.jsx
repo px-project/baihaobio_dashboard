@@ -52,7 +52,7 @@ export class ServicePage extends React.Component {
                     <ServiceType className="right" empty={ true }></ServiceType>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
-                <Table dataSource={ this.state.services } pagination={ true } columns={ tableConfig }></Table>
+                <Table rowKey="id" dataSource={ this.state.services } pagination={ true } columns={ tableConfig }></Table>
             </Page>
         );
     }
