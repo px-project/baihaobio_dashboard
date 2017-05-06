@@ -9,3 +9,4 @@ export * from './message/pages';
 export * from './laboratory/pages';
 export * from './carousel/pages';
 export * from './user/pages';
+export * from './info/pages';

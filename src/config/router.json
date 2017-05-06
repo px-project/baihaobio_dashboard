@@ -145,7 +145,16 @@
             {
                 "title": "公司信息",
                 "path": "info",
-                "pages": []
+                "pages": [
+                    {
+                        "title": "编辑公司信息",
+                        "path": "edit"
+                    },
+                    {
+                        "title": "公司信息",
+                        "path": ""
+                    }
+                ]
             },
             {
                 "title": "实验室",

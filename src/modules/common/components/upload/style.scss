@@ -4,4 +4,28 @@
     border-radius: 4px;
     min-width: 8rem;
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .ant-upload-select {
+        display: block;
+        height: 100%;
+        width: 100%;
+        .ant-upload {
+            display: block;
+            height: 100%;
+            img {
+                display: inline-block;
+                height: 100%;
+            }
+            .uploader-trigger {
+                display: flex;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+            }
+        }
+    }
 }
