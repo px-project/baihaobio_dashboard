@@ -32,9 +32,9 @@ export class EmployeePage extends React.Component {
     }
 
     componentWillMount() {
+        this.setState({ loading: true });
         this.getEmployeeList().then(res => {
-            this.setState({ list: res.list });
-            this.setState({ loading: false });
+            this.setState({ list: res.list, loading: false });
         });
     }
 
@@ -56,7 +56,6 @@ export class EmployeePage extends React.Component {
     }
 
     getEmployeeList(page = 1) {
-        this.setState({ loading: true });
         return xhttp.get('/employee/employeeList/rows/20/page/' + page);
     }
 }

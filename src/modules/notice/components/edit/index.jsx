@@ -12,13 +12,14 @@ import './style.scss';
 class _noticeEdit extends React.Component {
 
     render() {
-        let { form, types } = this.props, { getFieldDecorator } = form;
+        let { form, types, init } = this.props, { getFieldDecorator } = form;
 
         return (
             <Form onSubmit={ this.submit.bind(this) }>
 
                 <FormItem label="中文内容" labelCol={ { span: 4 } } wrapperCol={ { span: 12 } }>
                     { getFieldDecorator('content', {
+                        initialValue: init.content,
                         rules: [
                             { required: true, message: '请输入中文内容' }
                         ]
@@ -27,6 +28,7 @@ class _noticeEdit extends React.Component {
 
                 <FormItem label="英文内容" labelCol={ { span: 4 } } wrapperCol={ { span: 12 } }>
                     { getFieldDecorator('englishContent', {
+                        initialValue: init.englishContent,
                         rules: [
                             { required: true, message: '请输入英文内容' }
                         ]
@@ -36,7 +38,7 @@ class _noticeEdit extends React.Component {
                 <FormItem wrapperCol={ { span: 12, offset: 4 } }>
                     <Button type="primary" htmlType="submit">保存</Button>
                     <Button type="danger">
-                        <Link to="/service">取消</Link>
+                        <Link to="/notice">取消</Link>
                     </Button>
                 </FormItem>
             </Form>
