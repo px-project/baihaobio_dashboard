@@ -21,13 +21,13 @@ class _newsEdit extends React.Component {
     }
 
     render() {
-        let { form, types } = this.props, { getFieldDecorator } = form;
-
+        let { form, init = {} } = this.props, { getFieldDecorator } = form;
         return (
             <Form onSubmit={ this.submit.bind(this) }>
 
                 <FormItem label="标题" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('title', {
+                        initialValue: init.title,
                         rules: [
                             { required: true, message: '请输入标题' }
                         ]
@@ -36,6 +36,7 @@ class _newsEdit extends React.Component {
 
                 <FormItem label="封面" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('photo', {
+                        initialValue: init.photo,
                         rules: [
                             { required: true, message: '请上传封面' }
                         ]
@@ -44,12 +45,14 @@ class _newsEdit extends React.Component {
 
                 <FormItem label="简介" labelCol={ { span: 4 } } wrapperCol={ { span: 12 } }>
                     { getFieldDecorator('shortDesc', {
+                        initialValue: init.shortDesc,
                         rules: []
                     })(<Input type="textarea" rows={ 6 }></Input>) }
                 </FormItem>
 
                 <FormItem label="新闻详情" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                     { getFieldDecorator('content', {
+                        initialValue: init.content,
                         rules: []
                     })(<Editor id="content"></Editor>) }
                 </FormItem>
@@ -67,6 +70,7 @@ class _newsEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
+            if (err) return;
             this.props.submit(data);
         });
     }

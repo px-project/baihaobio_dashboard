@@ -73,13 +73,13 @@
                         "path": "add"
                     },
                     {
-                        "title": "活动详情",
-                        "path": ":activity_id",
+                        "title": "编辑活动",
+                        "path": ":activity_id/edit",
                         "name": "edit"
                     },
                     {
                         "title": "职员详情",
-                        "path": ":activity_id/edit",
+                        "path": ":activity_id",
                         "name": "detail"
                     },
                     {

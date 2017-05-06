@@ -48,6 +48,7 @@ class _noticeEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
+            if (err) return;
             this.props.submit(data);
         });
     }
