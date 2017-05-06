@@ -12,11 +12,13 @@ export class ServiceAddPage extends React.Component {
         super(props);
         this.state = { types: [] };
     }
+
     componentWillMount() {
         xhttp.get('/service/sortList').then(result => {
             this.setState({ types: result });
         });
     }
+
     render() {
         return (
             <PageDetail className="service-add-page">
@@ -24,6 +26,7 @@ export class ServiceAddPage extends React.Component {
             </PageDetail>
         );
     }
+
     save(data) {
         xhttp.post('/service/create', data).then(result => {
             notification.success({

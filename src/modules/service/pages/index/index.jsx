@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Table, Button, Input } from 'antd';
-import { Page, PageHeader } from '../../../common';
+import { Page, PageHeader, Loader } from '../../../common';
 import { ServiceType } from '../../components';
 import { Link } from 'react-router-dom';
 import { xhttp } from '../../../common';
@@ -33,16 +33,18 @@ export class ServicePage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { services: [] };
+        this.state = { services: [], loading: false };
     }
 
     componentDidMount() {
+        this.setState({ loading: true });
         this.getServiceList().then(result => {
-            this.setState({ services: result.list });
+            this.setState({ services: result.list, loading: false });
         });
     }
 
     render() {
+        let { services, loading } = this.state;
         return (
             <Page className="service-page">
                 <PageHeader>
@@ -52,7 +54,9 @@ export class ServicePage extends React.Component {
                     <ServiceType className="right" empty={ true }></ServiceType>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
-                <Table rowKey="id" dataSource={ this.state.services } pagination={ true } columns={ tableConfig }></Table>
+                <Loader loading={ loading }>
+                    <Table rowKey="id" dataSource={ services } pagination={ true } columns={ tableConfig }></Table>
+                </Loader>
             </Page>
         );
     }

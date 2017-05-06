@@ -23,10 +23,10 @@ class _serviceEdit extends React.Component {
     }
 
     componentWillMount(props) {
-        let { init, types } = this.props;
+        let { init = {}, types } = this.props;
         if (init.id && !this.state.type) {
             types.forEach(type => {
-                if (type.id === init.sortId) this.selectType(type.type, init.sortId);
+                if (type.id === init.sortId) this.setState({ type: type.type });
             });
         }
     }
@@ -47,12 +47,12 @@ class _serviceEdit extends React.Component {
                 </FormItem>
 
                 <FormItem label="类型" labelCol={ { span: 4 } } wrapperCol={ { span: 10 } }>
-                    <Select placeholder="请选择类型" value={ this.state.type } style={ { width: 200 } } onChange={ this.selectType.bind(this) }>
+                    <Select placeholder="请选择类型" value={ this.state.type || undefined } style={ { width: 200 } } onChange={ this.selectType.bind(this) }>
                         <Option value={ "1" }>普通服务</Option>
                         <Option value={ "2" }>特色服务</Option>
                     </Select>
                     { getFieldDecorator('sortId', {
-                        initialValue: this.state.type ? init.sortId : '',
+                        initialValue: this.state.type ? init.sortId : undefined,
                         rules: [
                             { required: true, message: '请选择服务类型' }
                         ]
