@@ -2,7 +2,7 @@
  * employee list page.
  */
 import React from 'react';
-import { xhttp, Page, PageHeader } from '../../../common';
+import { xhttp, Page, PageHeader, Loader } from '../../../common';
 import { Link } from 'react-router-dom';
 import { Button, Table, Input } from 'antd';
 
@@ -17,7 +17,7 @@ const columns = [
         title: '操作', dataIndex: 'id', key: 'id', width: '15%', render: id => (
             <span>
                 <Link to={ `/employee/${id}` }>详情</Link>
-                <Link to={ `/employee/${id}/edits` }>编辑</Link>
+                <Link to={ `/employee/${id}/edit` }>编辑</Link>
                 <a>删除</a>
             </span>
         )
@@ -34,10 +34,12 @@ export class EmployeePage extends React.Component {
     componentWillMount() {
         this.getEmployeeList().then(res => {
             this.setState({ list: res.list });
+            this.setState({ loading: false });
         });
     }
 
     render() {
+        let { loading, list } = this.state;
         return (
             <Page className="employee-page">
                 <PageHeader>
@@ -46,12 +48,15 @@ export class EmployeePage extends React.Component {
                         <Search className="right" placeholder="请输入关键字查询"></Search>
                     </div>
                 </PageHeader>
-                <Table columns={ columns } dataSource={ this.state.list }></Table>
+                <Loader loading={ loading }>
+                    <Table rowKey="id" columns={ columns } dataSource={ list }></Table>
+                </Loader>
             </Page>
         );
     }
 
     getEmployeeList(page = 1) {
+        this.setState({ loading: true });
         return xhttp.get('/employee/employeeList/rows/20/page/' + page);
     }
 }

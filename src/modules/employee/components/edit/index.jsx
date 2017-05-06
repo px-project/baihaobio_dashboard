@@ -1,5 +1,5 @@
 /**
- * edit empolyee component.
+ * edit employee component.
  */
 import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
@@ -9,15 +9,15 @@ const FormItem = Form.Item;
 const { Option } = Select;
 import './style.scss';
 
-class _empolyeeEdit extends React.Component {
+class _employeeEdit extends React.Component {
     render() {
-        let { form, types } = this.props, { getFieldDecorator } = form;
-
+        let { form, init = {} } = this.props, { getFieldDecorator } = form;
         return (
             <Form onSubmit={ this.submit.bind(this) }>
 
                 <FormItem label="姓名" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('name', {
+                        initialValue: init.name,
                         rules: [
                             { required: true, message: '请输入姓名' }
                         ]
@@ -26,6 +26,7 @@ class _empolyeeEdit extends React.Component {
 
                 <FormItem label="职位" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('position', {
+                        initialValue: init.position,
                         rules: [
                             { required: true, message: '请输入职位' }
                         ]
@@ -34,36 +35,42 @@ class _empolyeeEdit extends React.Component {
 
                 <FormItem label="邮箱" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('email', {
+                        initialValue: init.email,
                         rules: []
                     })(<Input></Input>) }
                 </FormItem>
 
                 <FormItem label="联系方式" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('telephone', {
+                        initialValue: init.telephone,
                         rules: []
                     })(<Input></Input>) }
                 </FormItem>
 
                 <FormItem label="头像" labelCol={ { span: 4 } } wrapperCol={ { span: 8 } }>
                     { getFieldDecorator('photo', {
+                        initialValue: init.photo,
                         rules: []
                     })(<Upload></Upload>) }
                 </FormItem>
 
                 <FormItem label="简介" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                     { getFieldDecorator('description', {
+                        initialValue: init.description,
                         rules: []
                     })(<Editor id="description"></Editor>) }
                 </FormItem>
 
                 <FormItem label="研究方向" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                     { getFieldDecorator('study', {
+                        initialValue: init.study,
                         rules: []
                     })(<Editor id="study"></Editor>) }
                 </FormItem>
 
                 <FormItem label="文献" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                     { getFieldDecorator('thesis', {
+                        initialValue: init.thesis,
                         rules: []
                     })(<Editor id="thesis"></Editor>) }
                 </FormItem>
@@ -71,7 +78,7 @@ class _empolyeeEdit extends React.Component {
                 <FormItem wrapperCol={ { span: 12, offset: 4 } }>
                     <Button type="primary" htmlType="submit">保存</Button>
                     <Button type="danger">
-                        <Link to="/service">取消</Link>
+                        <Link to="/employee">取消</Link>
                     </Button>
                 </FormItem>
             </Form>
@@ -81,10 +88,11 @@ class _empolyeeEdit extends React.Component {
     submit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, data) => {
+            if (err) return;
             this.props.submit(data);
         });
     }
 
 }
 
-export const EmpolyeeEdit = Form.create()(_empolyeeEdit);
+export const EmployeeEdit = Form.create()(_employeeEdit);
