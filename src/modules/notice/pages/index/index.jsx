@@ -3,25 +3,10 @@
  */
 import React from 'react';
 import { xhttp, Page, PageHeader, Loader } from '../../../common';
-import { Button, Table, Input } from 'antd';
+import { Button, Table, Input, Modal, notification } from 'antd';
 import { Link } from 'react-router-dom';
 
 const { Search } = Input;
-
-const columns = [
-    { title: '序号', dataIndex: 'index', key: 'index', width: '10%', render: (text, record, index) => index + 1 },
-    { title: '内容', dataIndex: 'content', key: 'content', width: '60%' },
-    { title: '发布时间', dataIndex: 'createTime', key: 'createTime', width: '15%' },
-    {
-        title: '操作', dataIndex: 'id', key: 'id', width: '15%', render: (text) => (
-            <span>
-                <Link to={ `/notice/${text}` }>详情</Link>
-                <Link to={ `/notice/${text}/edit` }>编辑</Link>
-                <a>删除</a>
-            </span>
-        )
-    }
-]
 
 export class NoticePage extends React.Component {
 
@@ -29,6 +14,22 @@ export class NoticePage extends React.Component {
         super(props);
         this.state = { list: [], loading: false };
     }
+
+    columns = [
+        { title: '序号', dataIndex: 'index', key: 'index', width: '10%', render: (text, record, index) => index + 1 },
+        { title: '内容', dataIndex: 'content', key: 'content', width: '60%' },
+        { title: '发布时间', dataIndex: 'createTime', key: 'createTime', width: '15%' },
+        {
+            title: '操作', dataIndex: 'id', key: 'id', width: '15%', render: (text, record) => (
+                <span>
+                    <Link to={ `/notice/${text}` }>详情</Link>
+                    <Link to={ `/notice/${text}/edit` }>编辑</Link>
+                    <a onClick={ this.delete.bind(this, record) }>删除</a>
+                </span>
+            )
+        }
+    ];
+
 
     componentWillMount() {
         this.setState({ loading: true });
@@ -48,7 +49,7 @@ export class NoticePage extends React.Component {
                     </div>
                 </PageHeader>
                 <Loader loading={ loading }>
-                    <Table rowKey="id" columns={ columns } dataSource={ list }></Table>
+                    <Table rowKey="id" columns={ this.columns } dataSource={ list }></Table>
                 </Loader>
             </Page>
         );
@@ -56,5 +57,23 @@ export class NoticePage extends React.Component {
 
     getNoticeList(page = 1) {
         return xhttp.get('/notice/noticeList/rows/20/page/' + page);
+    }
+
+    delete(notice) {
+        Modal.confirm({
+            title: `确认删除公告：${notice.content}?`,
+            content: `此操作不可逆，请核对公告名称：${notice.content}。`,
+            maskClosable: true,
+            onOk: () => new Promise((resolve, reject) => {
+                xhttp.post('/notice/delete', { _id: notice.id }).then(result => {
+                    this.setState({ list: this.state.list.filter(item => item !== notice) });
+                    resolve();
+                    notification.success({
+                        message: '公告删除成功',
+                        description: notice.content + ' 已删除。'
+                    });
+                });
+            })
+        });
     }
 }

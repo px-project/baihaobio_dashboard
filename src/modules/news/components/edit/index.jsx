@@ -54,7 +54,7 @@ class _newsEdit extends React.Component {
                     { getFieldDecorator('content', {
                         initialValue: init.content,
                         rules: []
-                    })(<Editor id="content"></Editor>) }
+                    })(<Editor id="content" height={ 500 }></Editor>) }
                 </FormItem>
 
                 <FormItem wrapperCol={ { span: 12, offset: 4 } }>

@@ -54,7 +54,7 @@ export class CarouselPage extends React.Component {
                     </div>
                 </PageHeader>
                 <Loader loading={ loading }>
-                    <Table columns={ columns } dataSource={ list }></Table>
+                    <Table rowKey="id" columns={ columns } dataSource={ list }></Table>
                 </Loader>
             </Page>
         );

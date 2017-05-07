@@ -15,5 +15,9 @@ export class LoginPage extends React.Component {
         );
     }
     login(data) {
+        xhttp.post('/admin/login', data).then(res => {
+            console.log(res);
+            this.props.history.push('/home');
+        });
     }
 }

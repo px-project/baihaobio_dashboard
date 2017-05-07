@@ -237,11 +237,6 @@
         "path": "message",
         "pages": [
             {
-                "title": "留言详情",
-                "path": ":message_id/edit",
-                "name": "detail"
-            },
-            {
                 "title": "列表",
                 "path": ""
             }

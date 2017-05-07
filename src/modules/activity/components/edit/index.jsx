@@ -12,7 +12,7 @@ import './style.scss';
 class _activityEdit extends React.Component {
 
     render() {
-        let { form, init } = this.props, { getFieldDecorator } = form;
+        let { form, init = {} } = this.props, { getFieldDecorator } = form;
 
         return (
             <Form onSubmit={ this.submit.bind(this) }>
