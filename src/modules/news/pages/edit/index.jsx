@@ -16,9 +16,7 @@ export class NewsEditPage extends React.Component {
     componentWillMount() {
         this.setState({ loading: true });
         xhttp.get('/news/detail/_id/' + this.props.match.params.news_id)
-            .then(news => {
-                this.setState({ detail: news, loading: false });
-            });
+            .then(news => this.setState({ detail: news, loading: false }));
     }
 
     render() {
