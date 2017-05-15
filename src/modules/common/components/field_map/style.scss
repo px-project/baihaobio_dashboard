@@ -1,0 +1,26 @@
+._field-map {
+    display: flex;
+    width: 100%;
+    margin-bottom: 32px;
+    label {
+        display: inline-flex;
+        width: 16.66666667%;
+        font-weight: bold;
+        justify-content: flex-end;
+        line-height: 24px;
+        &:after {
+            content: ':';
+            padding-right: 1rem;
+        }
+    }
+    ._field-map-value {
+        display: flex;
+        align-items: center;
+        width: 55%;
+        .rich {
+            background: #f7f7f7;
+            padding: 1rem;
+            flex: 1;
+        }
+    }
+}

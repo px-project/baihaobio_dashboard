@@ -52,7 +52,7 @@ class _activityEdit extends React.Component {
                 <FormItem wrapperCol={ { span: 12, offset: 4 } }>
                     <Button type="primary" htmlType="submit">保存</Button>
                     <Button type="danger">
-                        <Link to="/service">取消</Link>
+                        <Link to="/activity">取消</Link>
                     </Button>
                 </FormItem>
             </Form>

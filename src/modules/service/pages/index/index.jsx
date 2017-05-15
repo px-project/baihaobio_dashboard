@@ -51,7 +51,6 @@ export class ServicePage extends React.Component {
                     <Button type="primary">
                         <Link to="/service/add">添加</Link>
                     </Button>
-                    <ServiceType className="right" empty={ true }></ServiceType>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
                 <Loader loading={ loading }>

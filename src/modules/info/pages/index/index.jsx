@@ -8,7 +8,7 @@ export class InfoPage extends React.Component {
     render() {
         return (
             <PageDetail className="info-page">
-                info page.
+
             </PageDetail>
         );
     }
