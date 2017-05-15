@@ -2,7 +2,6 @@
  * service detail page.
  */
 import React from 'react';
-import { ServiceDetail } from '../../components';
 import { PageDetail, xhttp, Loader, FieldMap, ButtonGroup } from '../../../common';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
