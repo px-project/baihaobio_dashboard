@@ -16,7 +16,7 @@ export class EmployeeDetailPage extends React.Component {
     componentWillMount() {
         this.setState({ loading: true });
         xhttp.get('/employee/employeeDetail/_id/' + this.props.match.params.employee_id)
-            .then(employees => this.setState({ detail: employees, loading: false }));
+            .then(employee => this.setState({ detail: employee, loading: false }));
     }
 
     render() {
