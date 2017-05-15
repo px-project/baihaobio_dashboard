@@ -5,7 +5,6 @@ import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { Editor } from '../../../common';
-import { ServiceType } from '../type';
 const FormItem = Form.Item;
 const { Option } = Select;
 import './style.scss';
