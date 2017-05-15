@@ -241,30 +241,5 @@
                 "path": ""
             }
         ]
-    },
-    {
-        "title": "用户",
-        "icon": "user",
-        "path": "user",
-        "pages": [
-            {
-                "title": "添加用户",
-                "path": "add"
-            },
-            {
-                "title": "编辑用户",
-                "path": ":user_id/edit",
-                "name": "edit"
-            },
-            {
-                "title": "用户详情",
-                "path": ":user_id",
-                "name": "detail"
-            },
-            {
-                "title": "列表",
-                "path": ""
-            }
-        ]
     }
 ]

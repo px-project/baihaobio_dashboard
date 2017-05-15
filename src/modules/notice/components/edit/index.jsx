@@ -12,7 +12,7 @@ import './style.scss';
 class _noticeEdit extends React.Component {
 
     render() {
-        let { form, types, init } = this.props, { getFieldDecorator } = form;
+        let { form, types, init = {} } = this.props, { getFieldDecorator } = form;
 
         return (
             <Form onSubmit={ this.submit.bind(this) }>

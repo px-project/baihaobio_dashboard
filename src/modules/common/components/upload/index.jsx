@@ -26,6 +26,10 @@ export class Upload extends React.Component {
             });
         }
     }
+    componentWillMount() {
+        let { value } = this.props;
+        if (value) this.setState({ url: '//www.baihaobio.com' + value });
+    }
 
     render() {
         const { url } = this.state;
