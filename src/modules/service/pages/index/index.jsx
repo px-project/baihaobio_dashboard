@@ -2,12 +2,13 @@
  * service list page.
  */
 import React from 'react';
-import { Table, Button, Input, Modal, notification } from 'antd';
+import { Table, Button, Input, Modal, notification, Select } from 'antd';
 import { Page, PageHeader, Loader } from '../../../common';
 import { ServiceType } from '../../components';
 import { Link } from 'react-router-dom';
 import { xhttp } from '../../../common';
 
+const { Option } = Select;
 const { Search } = Input;
 
 export class ServicePage extends React.Component {
@@ -33,24 +34,33 @@ export class ServicePage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { services: [], loading: false };
+        this.state = { services: [], sorts: [], loading: false, page: 1 };
     }
 
     componentDidMount() {
         this.setState({ loading: true });
-        this.getServiceList().then(result => {
-            this.setState({ services: result.list, loading: false });
-        });
+        xhttp.get('/service/serviceList/rows/20/page/' + this.state.page)
+            .then(services => {
+                this.setState({ services: services.list });
+                return xhttp.get('/service/sortList');
+            })
+            .then(sorts => {
+                this.setState({ sorts, loading: false });
+            });
     }
 
     render() {
-        let { services, loading } = this.state;
+        let { services, loading, sorts } = this.state;
         return (
             <Page className="service-page">
                 <PageHeader>
                     <Button type="primary">
                         <Link to="/service/add">添加</Link>
                     </Button>
+
+                    <Select className="right" placeholder="全部类型服务" style={ { width: 150 } }>
+                        { sorts.map((sort, index) => <Option key={ index } value={ sort.id }>{ sort.title }</Option>) }
+                    </Select>
                     <Search placeholder="请输入关键字查询"></Search>
                 </PageHeader>
                 <Loader loading={ loading }>
@@ -61,7 +71,7 @@ export class ServicePage extends React.Component {
     }
 
     getServiceList(page = 1) {
-        return xhttp.get('/service/serviceList/rows/20/page/' + page);
+        return;
     }
 
     delete(service) {
