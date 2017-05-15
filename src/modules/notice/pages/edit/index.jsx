@@ -16,9 +16,7 @@ export class NoticeEditPage extends React.Component {
     componentWillMount() {
         this.setState({ loading: true });
         xhttp.get('/notice/detail/_id/' + this.props.match.params.notice_id)
-            .then(notices => {
-                this.setState({ detail: notices, loading: false });
-            });
+            .then(notice => this.setState({ detail: notice, loading: false }));
     }
 
     render() {
