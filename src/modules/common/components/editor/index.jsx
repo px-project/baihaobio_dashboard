@@ -4,37 +4,28 @@
 import React from 'react';
 import './style.scss';
 const ReactQuill = require('react-quill');
+import { xhttp } from '../../services';
 
 export class Editor extends React.Component {
 
-
     modules = {
-        toolbar: [
-            [{ 'header': [1, 2, false] }],
-            ['bold', 'italic', 'underline', 'strike'],
-            ['blockquote', 'code-block'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-            [{ 'size': ['small', false, 'large', 'huge'] }],
-            ['link', 'image'],
-            ['clean']
-        ],
-    };
+        toolbar: {
+            container: [
+                [{ 'header': [1, 2, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],
+                ['link', 'image'],
+                ['clean']
+            ],
+            handlers: {
+                'image': this.imageHandler.bind(this)
+            }
+        }
+    }
 
     _editorRef = null;
-
-    //   ['bold', 'italic', 'underline', 'strike'],       // toggled buttons
-    //   ['blockquote', 'code-block'],                    // blocks
-    //   [{ 'header': 1 }, { 'header': 2 }],              // custom button values
-    //   [{ 'list': 'ordered'}, { 'list': 'bullet' }],    // lists
-    //   [{ 'script': 'sub'}, { 'script': 'super' }],     // superscript/subscript
-    //   [{ 'indent': '-1'}, { 'indent': '+1' }],         // outdent/indent
-    //   [{ 'direction': 'rtl' }],                        // text direction
-    //   [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
-    //   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],       // header dropdown
-    //   [{ 'color': [] }, { 'background': [] }],         // dropdown with defaults
-    //   [{ 'font': [] }],                                // font family
-    //   [{ 'align': [] }],                               // text align
-    //   ['clean'],                                       // remove formatting
 
     formats = [
         'header',
@@ -51,7 +42,6 @@ export class Editor extends React.Component {
                 <ReactQuill
                     value={ value }
                     onChange={ this.handleChange.bind(this) }
-                    onChangeSelection={ this.focus.bind(this) }
                     modules={ this.modules }
                     formats={ this.formats }
                     ref={ el => this._editorRef = el }
@@ -59,13 +49,25 @@ export class Editor extends React.Component {
             </div>
         )
     }
+    imageHandler(...args) {
+        var fileSelector = document.createElement('input');
+        fileSelector.setAttribute('type', 'file');
+
+        let ele = document.createElement('input');
+        ele.setAttribute('type', 'file');
+        ele.click();
+
+        ele.addEventListener('change', e => {
+            let file = e.path[0].files[0];
+            let newData = new FormData();
+            newData.append('photo', file);
+            xhttp.post('/admin/upload', newData).then(({ url }) => {
+                this._editorRef.getEditor().insertEmbed(10, 'image', `//www.baihaobio.com${url}`);
+            });
+        });
+    }
 
     handleChange(data) {
         this.props.onChange(data);
     }
-
-    focus(...args) {
-        console.log(args);
-    }
-
 }

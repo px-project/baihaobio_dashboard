@@ -24,9 +24,13 @@ function BuildMethod({ url, data, method }) {
     };
 
     if (data) {
-        fetchOption.headers['Accept'] = 'application/json';
-        fetchOption.headers['Content-Type'] = 'application/json';
-        fetchOption.body = JSON.stringify(data);
+        if (data instanceof FormData) {
+            fetchOption.body = data;
+        } else {
+            fetchOption.headers['Accept'] = 'application/json';
+            fetchOption.headers['Content-Type'] = 'application/json';
+            fetchOption.body = JSON.stringify(data);
+        }
     }
 
     let fetchRef = fetch(_url, fetchOption).then(res => {
