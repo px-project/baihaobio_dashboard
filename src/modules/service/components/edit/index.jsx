@@ -75,31 +75,31 @@ class _serviceEdit extends React.Component {
                     <div className="basic">
                         <FormItem label="项目简介" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('description', {
-                                initialValue: 'description',
+                                initialValue: init.description,
                                 rules: []
                             })(<Editor id="basic-description"></Editor>) }
                         </FormItem>
                         <FormItem label="实验流程" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('experimentFlow', {
-                                initialValue: 'experimentFlow',
+                                initialValue: init.experimentFlow,
                                 rules: []
                             })(<Editor id="basic-flow"></Editor>) }
                         </FormItem>
                         <FormItem label="用户须知" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('userNotice', {
-                                initialValue: 'userNotice',
+                                initialValue: init.userNotice,
                                 rules: []
                             })(<Editor id="basic-user"></Editor>) }
                         </FormItem>
                         <FormItem label="结果展示" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('resultShow', {
-                                initialValue: 'resultShow',
+                                initialValue: init.resultShow,
                                 rules: []
                             })(<Editor id="basic-result"></Editor>) }
                         </FormItem>
                         <FormItem label="服务周期" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('serverCircle', {
-                                initialValue: 'serverCircle',
+                                initialValue: init.serverCircle,
                                 rules: []
                             })(<Editor id="basic-circle"></Editor>) }
                         </FormItem>
@@ -111,49 +111,49 @@ class _serviceEdit extends React.Component {
                     <div className="spec">
                         <FormItem label="项目简介" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('description', {
-                                initialValue: 'description',
+                                initialValue: init.description,
                                 rules: []
                             })(<Editor id="spec-description"></Editor>) }
                         </FormItem>
                         <FormItem label="实验原理" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('experimentTheory', {
-                                initialValue: 'experimentTheory',
+                                initialValue: init.experimentTheory,
                                 rules: []
                             })(<Editor id="spec-exper"></Editor>) }
                         </FormItem>
                         <FormItem label="项目优势" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('advantage', {
-                                initialValue: 'advantage',
+                                initialValue: init.advantage,
                                 rules: []
                             })(<Editor id="spec-advantage"></Editor>) }
                         </FormItem>
                         <FormItem label="实验流程" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('experimentFlow', {
-                                initialValue: 'experimentFlow',
+                                initialValue: init.experimentFlow,
                                 rules: []
                             })(<Editor id="spec-flow"></Editor>) }
                         </FormItem>
                         <FormItem label="结果展示" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('resultShow', {
-                                initialValue: 'resultShow',
+                                initialValue: init.resultShow,
                                 rules: []
                             })(<Editor id="spec-result"></Editor>) }
                         </FormItem>
                         <FormItem label="服务周期" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('serverCircle', {
-                                initialValue: 'serverCircle',
+                                initialValue: init.serverCircle,
                                 rules: []
                             })(<Editor id="spec-server"></Editor>) }
                         </FormItem>
                         <FormItem label="参考文献" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('literature', {
-                                initialValue: 'literature',
+                                initialValue: init.literature,
                                 rules: []
                             })(<Editor id="spec-literature"></Editor>) }
                         </FormItem>
                         <FormItem label="客户须知" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
                             { getFieldDecorator('userNotice', {
-                                initialValue: 'userNotice',
+                                initialValue: init.userNotice,
                                 rules: []
                             })(<Editor id="spec-user"></Editor>) }
                         </FormItem>
