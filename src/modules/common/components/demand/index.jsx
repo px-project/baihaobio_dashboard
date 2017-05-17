@@ -4,37 +4,42 @@
 import React from 'react';
 import { Upload } from '../upload';
 import { Icon } from '../icon';
+import './style.scss';
 
 export class Demand extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = { newData: '' };
     }
+
     render() {
         let { value, onChange } = this.props;
-        console.log(value);
         return (
             <div className="_demand">
                 { value.map((item, index) => (
-                    <div>
-                        <Upload value={ item } key={ index } onChange={ this.edit.bind(this, index) }></Upload>
-                        <Icon icon="close"></Icon>
+                    <div key={ index } className="item">
+                        <Upload full={ true } value={ item } onChange={ this.edit.bind(this, index) }></Upload>
+                        <Icon icon="close" onClick={ this.delete.bind(this, index) }></Icon>
                     </div>
                 )) }
-                <Upload value={ this.state.newData } onChange={ this.add.bind(this) }></Upload>
+                <Upload full={ true } empty={ true } onChange={ this.add.bind(this) }></Upload>
             </div>
         );
     }
 
-    add(id) {
+    add(result) {
         let { value, onChange } = this.props;
-        onChange(value.concat(id));
-        this.setState({ newData: ' ' });
-        this.setState({ newData: '' });
+        onChange(value.concat([result.url]));
     }
 
-    edit(...args) {
-        console.log(args);
+    edit(index, result) {
+        let { value, onChange } = this.props;
+        value[index] = result.url;
+        onChange(value);
+    }
+
+    delete(index) {
+        let { value, onChange } = this.props;
+        onChange(value.filter((item, i) => i !== index));
     }
 }

@@ -9,23 +9,19 @@ import { Upload as AntUpload, Icon, message } from 'antd';
 export class Upload extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { url: '', changed: false };
-    }
-
-    getBase64(img, callback) {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => callback(reader.result));
-        reader.readAsDataURL(img);
+        this.state = { url: '' };
     }
 
     handleChange(info) {
-        if (info.file.status === 'done') {
-            this.props.onChange(info.file.response.result.id);
-            this.getBase64(info.file.originFileObj, url => {
-                this.setState({ url, changed: true });
-            });
+        let { status, response = {} } = info.file, { result } = response, { full, empty } = this.props;
+        if (status === 'done') {
+            this.props.onChange(full ? result : result.id);
+
+            if (empty) return;
+            this.setState({ url: '//www.baihaobio.com' + result.url });
         }
     }
+
     componentWillMount() {
         let { value } = this.props;
         if (value) {

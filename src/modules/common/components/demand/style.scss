@@ -1,0 +1,25 @@
+._demand {
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        .l-icon {
+            position: absolute;
+            background: red;
+            color: white;
+            display: flex;
+            height: 1.2rem;
+            width: 1.2rem;
+            border-radius: 50%;
+            top: -0.6rem;
+            right: -0.6rem;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
