@@ -15,13 +15,13 @@ export class ServicePage extends React.Component {
 
     tableConfig = [
         { title: '序号', dataIndex: 'index', key: 'i', width: '10%', render: (text, record, index) => index + 1 },
-        { title: '名称', dataIndex: 'title', key: 'name', width: '20%' },
-        { title: '类型', dataIndex: 'sortTitle', key: 'sortTitle', width: '20%' },
-        { title: '创建时间', dataIndex: 'createTime', key: 'createTime', width: '25%' },
+        { title: '名称', dataIndex: 'title', key: 'name', width: '35%' },
+        { title: '类型', dataIndex: 'sortTitle', key: 'sortTitle', width: '15%' },
+        { title: '创建时间', dataIndex: 'createTime', key: 'createTime', width: '15%' },
         {
             title: '操作',
             key: 'action',
-            width: '20%',
+            width: '15%',
             render: (text, record) => (
                 <span>
                     <Link to={ `/service/${record.id}` }>详情</Link>

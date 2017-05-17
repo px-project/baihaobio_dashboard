@@ -2,15 +2,15 @@
  * laboratory edit page.
  */
 import React from 'react';
-import { laboratoryEdit } from '../../components';
+import { LaboratoryEdit } from '../../components';
 import { PageDetail, xhttp } from '../../../common';
 import { notification } from 'antd';
 
-export class laboratoryAddPage extends React.Component {
+export class LaboratoryAddPage extends React.Component {
     render() {
         return (
             <PageDetail className="laboratory-add-page">
-                <laboratoryEdit submit={ this.submit.bind(this) }></laboratoryEdit>
+                <LaboratoryEdit submit={ this.submit.bind(this) }></LaboratoryEdit>
             </PageDetail>
         );
     }

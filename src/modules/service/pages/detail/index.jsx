@@ -63,7 +63,6 @@ export class ServiceDetailPage extends React.Component {
                         <Button type="primary">
                             <Link to={ `/service/${detail.id}/edit` }>编辑</Link>
                         </Button>
-                        <Button type="danger">删除</Button>
                     </ButtonGroup>
                 </Loader>
             </PageDetail>

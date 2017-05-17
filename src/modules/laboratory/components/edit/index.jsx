@@ -5,7 +5,7 @@ import React from 'react';
 import { Form, Button, Input, Select } from 'antd';
 import { Link } from 'react-router-dom';
 const FormItem = Form.Item;
-import { Upload } from '../../../common';
+import { Upload, Demand } from '../../../common';
 import './style.scss';
 
 class _laboratoryEdit extends React.Component {
@@ -34,17 +34,15 @@ class _laboratoryEdit extends React.Component {
                     })(<Upload></Upload>) }
                 </FormItem>
 
-                <FormItem label="简述" labelCol={ { span: 4 } } wrapperCol={ { span: 4 } }>
+                <FormItem label="简述" labelCol={ { span: 4 } } wrapperCol={ { span: 14 } }>
                     { getFieldDecorator('number', {
                         initialValue: init.number,
-                        rules: [
-                            { required: true, message: '请输入招简述' }
-                        ]
-                    })(<Input type="textarea"></Input>) }
+                        rules: []
+                    })(<Input type="textarea" rows={ 6 }></Input>) }
                 </FormItem>
 
                 <FormItem label="图片墙" labelCol={ { span: 4 } } wrapperCol={ { span: 16 } }>
-                    { getFieldDecorator('demand', {
+                    { getFieldDecorator('photoDetailUrl', {
                         initialValue: init.demand || [],
                         rules: []
                     })(<Demand></Demand>) }

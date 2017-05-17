@@ -34,7 +34,6 @@ export class CarouselDetailPage extends React.Component {
                         <Button type="primary">
                             <Link to={ `/carousel/${detail.id}/edit` }>编辑</Link>
                         </Button>
-                        <Button type="danger">删除</Button>
                     </ButtonGroup>
                 </Loader>
             </PageDetail>

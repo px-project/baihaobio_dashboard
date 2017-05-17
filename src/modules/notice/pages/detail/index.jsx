@@ -30,7 +30,6 @@ export class NoticeDetailPage extends React.Component {
                         <Button type="primary">
                             <Link to={ `/notice/${detail.id}/edit` }>编辑</Link>
                         </Button>
-                        <Button type="danger">删除</Button>
                     </ButtonGroup>
                 </Loader>
             </PageDetail>

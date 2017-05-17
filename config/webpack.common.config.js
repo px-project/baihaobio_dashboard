@@ -34,7 +34,7 @@ exports.config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.scss', '.jpeg', '.png']
+        extensions: ['.jsx', '.js', '.json', '.scss', '.jpeg', '.png']
     },
 
     module: {
