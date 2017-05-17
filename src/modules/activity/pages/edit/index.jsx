@@ -22,7 +22,7 @@ export class ActivityEditPage extends React.Component {
     }
 
     render() {
-        let { detail, types, loading } = this.state;
+        let { newData, types, loading } = this.state;
         return (
             <PageDetail className="activity-edit-page">
                 <Loader loading={ loading }>
@@ -33,7 +33,10 @@ export class ActivityEditPage extends React.Component {
     }
 
     submit(data) {
-        data.id = this.props.match.params.activity_id;
+        let { match } = this.props, { detail } = this.state;
+        data.id = match.params.activity_id;
+        if (data.photo === detail.photo) delete data.photo;
+
         xhttp.post('/activity/update', data).then(result => {
             notification.success({
                 message: '活动更新成功'

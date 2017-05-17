@@ -33,7 +33,10 @@ export class EmployeeEditPage extends React.Component {
     }
 
     submit(data) {
-        data.id = this.props.match.params.employee_id;
+        let { match } = this.props, { detail } = this.state;
+        data.id = match.params.employee_id;
+        if (data.photo === detail.photo) delete data.photo;
+
         xhttp.post('/employee/updateEmployee', data).then(result => {
             notification.success({
                 message: '职员更新成功',

@@ -9,7 +9,7 @@ import { Upload as AntUpload, Icon, message } from 'antd';
 export class Upload extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { url: '' };
+        this.state = { url: '', changed: false };
     }
 
     getBase64(img, callback) {
@@ -22,13 +22,15 @@ export class Upload extends React.Component {
         if (info.file.status === 'done') {
             this.props.onChange(info.file.response.result.id);
             this.getBase64(info.file.originFileObj, url => {
-                this.setState({ url });
+                this.setState({ url, changed: true });
             });
         }
     }
     componentWillMount() {
         let { value } = this.props;
-        if (value) this.setState({ url: '//www.baihaobio.com' + value });
+        if (value) {
+            this.setState({ url: '//www.baihaobio.com' + value });
+        }
     }
 
     render() {

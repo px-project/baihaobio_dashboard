@@ -30,6 +30,10 @@ export class InfoEditPage extends React.Component {
     }
 
     submit(data) {
+
+        let { detail } = this.state;
+        if (data.photo === detail.photo) delete data.photo;
+
         xhttp.post('/admin/updateCompany', data).then(result => {
             notification.success({
                 message: '公司更新成功'

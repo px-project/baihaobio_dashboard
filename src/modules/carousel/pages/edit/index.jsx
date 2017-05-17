@@ -31,7 +31,10 @@ export class CarouselEditPage extends React.Component {
     }
 
     submit(data) {
-        data.id = this.props.match.params.carousel_id;
+        let { match } = this.props, { detail } = this.state;
+        data.id = match.params.carousel_id;
+        if (data.photo === detail.photo) delete data.photo;
+
         xhttp.post('/carousel/update', data).then(result => {
             notification.success({
                 message: '轮播图更新成功'

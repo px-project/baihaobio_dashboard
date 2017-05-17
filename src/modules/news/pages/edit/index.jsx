@@ -31,7 +31,11 @@ export class NewsEditPage extends React.Component {
     }
 
     submit(data) {
-        data._id = this.props.match.params.news_id;
+
+        let { match } = this.props, { detail } = this.state;
+        data.id = match.params.news_id;
+        if (data.photo === detail.photo) delete data.photo;
+
         xhttp.post('/news/update', data).then(result => {
             notification.success({
                 message: '新闻更新成功'
