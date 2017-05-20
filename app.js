@@ -5,7 +5,7 @@ var app = express()
 var root = __dirname + '/build'
 app.use(express.static(root))
 
-app.use(compression());
+app.use(compression({ level: 9 }));
 
 app.use(fallback('index.html', { root: root }))
 
