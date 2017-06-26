@@ -7,6 +7,11 @@ import { PageDetail, xhttp } from '../../../common';
 import { notification } from 'antd';
 
 export class JobAddPage extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = { saving: false };
+	}
 	render() {
 		return (
 			<PageDetail className="job-add-page">
