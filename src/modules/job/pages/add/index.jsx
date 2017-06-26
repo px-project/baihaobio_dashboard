@@ -7,21 +7,22 @@ import { PageDetail, xhttp } from '../../../common';
 import { notification } from 'antd';
 
 export class JobAddPage extends React.Component {
-    render() {
-        return (
-            <PageDetail className="job-add-page">
-                <JobEdit submit={ this.submit.bind(this) }></JobEdit>
-            </PageDetail>
-        );
-    }
+	render() {
+		return (
+			<PageDetail className="job-add-page">
+				<JobEdit submit={ this.submit.bind(this) } saving={ this.state.saving }></JobEdit>
+			</PageDetail>
+		);
+	}
 
-    submit(data) {
-        xhttp.post('/jobs/create', data).then(result => {
-            notification.success({
-                message: '招聘创建成功'
-            });
-
-            this.props.history.push('/jobs/' + result);
-        });
-    }
+	submit(data) {
+		this.setState({ saving: true });
+		xhttp.post('/jobs/create', data).then(result => {
+			notification.success({
+				message: '招聘创建成功'
+			});
+			this.setState({ saving: false });
+			this.props.history.push('/job');
+		});
+	}
 }
