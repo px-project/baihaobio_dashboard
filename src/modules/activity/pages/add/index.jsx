@@ -7,20 +7,28 @@ import { ActivityEdit } from '../../components';
 import { notification } from 'antd';
 
 export class ActivityAddPage extends React.Component {
-    render() {
-        return (
-            <PageDetail className="activity-add-page">
-                <ActivityEdit submit={ this.submit.bind(this) }></ActivityEdit>
-            </PageDetail>
-        );
-    }
-    submit(data) {
-        xhttp.post('/activity/create', data).then(result => {
-            notification.success({
-                message: '活动创建成功'
-            });
 
-            this.props.history.push('/activity/' + result);
-        });
-    }
+	constructor(props) {
+		super(props);
+		this.state = { saving: false };
+	}
+
+	render() {
+		return (
+			<PageDetail className="activity-add-page">
+				<ActivityEdit submit={ this.submit.bind(this) } saving={ this.state.saving }></ActivityEdit>
+			</PageDetail>
+		);
+	}
+	submit(data) {
+		this.setState({ saving: true });
+		xhttp.post('/activity/create', data).then(result => {
+			notification.success({
+				message: '活动创建成功'
+			});
+
+			this.setState({ saving: false });
+			this.props.history.push('/activity/' + result);
+		});
+	}
 }

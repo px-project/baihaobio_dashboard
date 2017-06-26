@@ -7,21 +7,31 @@ import { PageDetail, xhttp } from '../../../common';
 import { notification } from 'antd';
 
 export class LaboratoryAddPage extends React.Component {
-    render() {
-        return (
-            <PageDetail className="laboratory-add-page">
-                <LaboratoryEdit submit={ this.submit.bind(this) }></LaboratoryEdit>
-            </PageDetail>
-        );
-    }
 
-    submit(data) {
-        xhttp.post('/laboratorys/create', data).then(result => {
-            notification.success({
-                message: '招聘创建成功'
-            });
+	constructor(props) {
+		super(props);
+		this.state = { saving: false };
+	}
 
-            this.props.history.push('/laboratorys/' + result);
-        });
-    }
+	render() {
+		return (
+			<PageDetail className="laboratory-add-page">
+				<LaboratoryEdit submit={ this.submit.bind(this) } saving={ this.state.saving }></LaboratoryEdit>
+			</PageDetail>
+		);
+	}
+
+	submit(data) {
+		this.setState({ saving: true });
+
+		xhttp.post('/laboratorys/create', data).then(result => {
+			notification.success({
+				message: '招聘创建成功'
+			});
+
+			this.setState({ saving: false });
+
+			this.props.history.push('/laboratory/' + result);
+		});
+	}
 }
