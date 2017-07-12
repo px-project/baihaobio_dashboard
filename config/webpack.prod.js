@@ -3,7 +3,7 @@
  */
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const { config, root } = require('./webpack.common.config');
+const { config, root } = require('./webpack.common');
 
 module.exports = merge(config, {
     plugins: [

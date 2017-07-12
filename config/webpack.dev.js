@@ -2,7 +2,7 @@
  * 开发模式
  */
 const merge = require('webpack-merge');
-const { config, root } = require('./webpack.common.config');
+const { config, root } = require('./webpack.common');
 const webpack = require('webpack');
 
 module.exports = merge(config, {
